@@ -1,0 +1,327 @@
+{% load static %}
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>
+    {% block title %} 
+
+    {% endblock title %}
+        </title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="{% static 'base2/img/core-img/favicon.ico' %}">
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="{% static 'base2/css/core-style.css' %}">
+    <link rel="stylesheet" href="{% static 'base2/style.css' %}">
+
+    <!-- Responsive CSS -->
+    <link href="{% static 'base2/css/responsive.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+ 
+ {% block categorias %}
+          
+    <div class="catagories-side-menu">
+        <!-- Close Icon -->
+        <div id="sideMenuClose">
+            <i class="ti-close"></i>
+        </div>
+        <!--  Side Nav  -->
+        <div class="nav-side-menu">
+            <div class="menu-list">
+                <h6>NUESTRAS CATEGORIAS</h6>
+                <ul id="menu-content" class="menu-content collapse out">
+                    <!-- Single Item -->
+                    <li data-toggle="collapse" data-target="#women" class="collapsed active">
+                        <a href="#">VER CATEGORIAS<span class="arrow"></span></a>
+                        <ul class="sub-menu collapse" id="women">
+                            
+                            {% for c in categoria  %}         
+                            <li><a href="{%  url 'categoria_productos' c.id %}">{{c.id}}-{{ c.categoria }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <!-- Single Item -->
+                  
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% endblock categorias %}
+    <div id="wrapper">
+       
+        
+        {% block header %}
+                    
+        <!-- ****** Header Area Start ****** -->
+        <header class="header_area bg-img" style="background-image: url(/static/base2/img/bg-img/cart_chop.JPG);">
+            <!-- Top Header Area Start -->
+            <div class="top_header_area">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center justify-content-end">
+
+                        <div class="col-12 col-lg-7">
+                            <div class="top_single_area d-flex align-items-center">
+                                <!-- Logo Area -->
+                                <div class="top_logo">
+                                    <a href="/"><img src="{% static 'base2/img/core-img/papeleria.png' %}" alt=""></a>
+                                </div>
+                                <!-- Cart & Menu Area -->
+                                <div class="header-cart-menu d-flex align-items-center ml-auto">
+                                    <!-- Cart Area -->
+                                    <div class="cart">
+                                        <a href="#" id="header-cart-btn" target="_blank" > <span class="cart_quantity">
+                                        {% if ct  %}
+                                        {{ ct }}
+                                        {% else %}
+                                           0
+                                        {% endif %}
+                                        </span><i class="fa fa-shopping-cart" style="font-size: 30px; color: red;" ></i></a>
+                                        <!-- Cart List Area Start -->
+                                        <ul class="cart-list">
+                                            <li class="total">
+                                                <span class="pull-right"><strong>TOTAL L.</strong> 
+                                                {% if carrito %}
+
+                                                {{total|intcomma}} 
+                                                {% else %}
+                                                   L.0.00
+                                                {% endif %}
+                                                    </span>
+                                                <a href="{% url 'micarrito' %}" class="btn btn-sm btn-cart">Ver Carrito</a>
+                                                <!-- <a href="checkout-1.html" class="btn btn-sm btn-checkout">Checkout</a> -->
+                                            </li>
+                                            
+                                            {% if carrito %}
+                                                
+                                            {% for item in carrito %}
+                                            <li>
+                                                <a href="#" class="image"><img src="{{ item.producto.imagen.url }}" class="cart-thumb" alt=""></a>
+                                                <div class="cart-item-desc">
+                                                    <h6><a href="#">{{ item.producto}}</a></h6>
+                                                    <p>{{item.cantidad}}x - <span class="price">L.{{ item.precio|intcomma}} más iva</span></p>
+                                                </div>
+                                                <span class="dropdown-product-remove"><i class="icon-cross"></i></span>
+                                            </li>
+                                            {% endfor %}
+                                            {% else %}
+                                              <center><h6 >Tu carrito esta vacio</h6></center>
+                                            {% endif %}
+                                          
+                                           
+                                        </ul>
+                                    </div>
+                                    <div class="header-right-side-menu ml-15">
+                                        <a href="#" id="sideMenuBtn"><i class="ti-menu" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+          
+            <div class="main_header_area">
+                <div class="container h-100">
+                    <div class="row h-100">
+                        <div class="col-12 d-md-flex justify-content-between">
+                            <!-- Header Social Area -->
+                            <div class="header-social-area">
+                                <a href="#"><span class="karl-level">¡SIGUENOS!</span> <i style="font-size: 30px; color: blue;" class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#"><i style="font-size: 30px; color: red;" class="fa fa-instagram" aria-hidden="true"></i></a>
+                                <!-- 
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a> -->
+                            </div> 
+                            <!-- Menu Area -->
+                            <div class="main-menu-area">
+                                <nav class="navbar navbar-expand-lg align-items-start">
+
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#karl-navbar" aria-controls="karl-navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"><i class="ti-menu"></i></span></button>
+
+                                    <div class="collapse navbar-collapse align-items-start collapse" id="karl-navbar">
+                                        <ul class="navbar-nav animated" id="nav">
+                                            <li class="nav-item active"><a class="nav-link" href="/">Inicio</a></li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="#" id="karlDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CATEGORIAS</a>
+                                                <div class="dropdown-menu" aria-labelledby="karlDropdown">
+                                                   
+                                                   {% for c in categoria %}                                                               
+                                                    <a class="dropdown-item" href="{% url 'categoria_productos' c.id %}">{{c.id}}-{{c.categoria}}</a>
+                                                    {% endfor %}
+                                                    <!-- <a class="dropdown-item" href="shop.html">Shop</a>
+                                                    <a class="dropdown-item" href="product-details.html">Product Details</a>
+                                                    <a class="dropdown-item" href="cart.html">Cart</a>
+                                                    <a class="dropdown-item" href="checkout.html">Checkout</a> -->
+                                                </div>
+                                            </li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="#" id="karlDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">QUIENES SOMOS</a>
+                                                <div class="dropdown-menu" aria-labelledby="karlDropdown">
+                                                    <a class="dropdown-item" href="#">NUESTRA HISTORIA</a>
+                                                    <a class="dropdown-item" href="#">COTÁCTANOS</a>
+                                                 
+                                                </div>
+                                            </li>
+                                            <li class="nav-item"><a class="nav-link" href="#">MI CUENTA</a></li>
+                                            <!-- <li class="nav-item"><a class="nav-link" href="#"></a></li> -->
+                                          
+                                        </ul>
+                                        
+                                    </div>
+                                </nav>
+                                <hr style="background: black; border-width: 1px;">
+                            </div>
+                            <!-- Help Line -->
+                           
+                            <div class="col-12 col-lg-5">
+                                <div class="single_footer_area">
+                                    <div class="footer_heading mb-10">
+                                        <h6 style="color: black;" ><i class="fa fa-search" aria-hidden="true"></i> Buscar productos</h6>
+                                    </div>
+                                    <div class="subscribtion_form">
+                                        <form action="#" method="post">
+                                            <input type="email" name="mail" class="mail" placeholder="Por nombre, o codigo">
+                                            <button type="submit" class="submit">Buscar</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- <hr style="background: black; border-width: 2px;"> -->
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+    
+        </header>
+ 
+        
+        {% endblock header %}  
+        
+        {% block page_content %}
+
+
+    
+        {% endblock page_content %}
+    
+
+        
+                
+          
+        <a id="app-whatsapp" target="_blanck" href="https://api.whatsapp.com/send?phone=50432231251&amp;text=Hola!&nbsp;me&nbsp;pueden&nbsp;apoyar?">
+            <img src="{% static 'base2/img/bg-img/w.png' %}" alt="">
+       </a>
+      
+       
+       {% block footer %}
+           
+
+        <!-- ****** Footer Area Start ****** -->
+        <footer class="footer_area">
+            <div class="container">
+                <div class="row">
+                    <!-- Single Footer Area Start -->
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="single_footer_area">
+                            <div class="footer-logo">
+                                <img src="{% static 'base2/img/core-img/papeleria.png' %}" alt="">
+                            </div>
+                            <div class="copywrite_text d-flex align-items-center">
+                                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Footer Area Start -->
+                    <div class="col-12 col-sm-6 col-md-3 col-lg-2">
+                        <div class="single_footer_area">
+                            <ul class="footer_widget_menu">
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Faq</a></li>
+                                <li><a href="#">Returns</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Single Footer Area Start -->
+                    <div class="col-12 col-sm-6 col-md-3 col-lg-2">
+                        <div class="single_footer_area">
+                            <ul class="footer_widget_menu">
+                                <li><a href="#">My Account</a></li>
+                                <li><a href="#">Shipping</a></li>
+                                <li><a href="#">Our Policies</a></li>
+                                <li><a href="#">Afiliates</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Single Footer Area Start -->
+                    <div class="col-12 col-lg-5">
+                        <div class="single_footer_area">
+                            <div class="footer_heading mb-30">
+                                <h6>Subscribe to our newsletter</h6>
+                            </div>
+                            <div class="subscribtion_form">
+                                <form action="#" method="post">
+                                    <input type="email" name="mail" class="mail" placeholder="Your email here">
+                                    <button type="submit" class="submit">Subscribe</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line"></div>
+
+                <!-- Footer Bottom Area Start -->
+                <div class="footer_bottom_area">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="footer_social_area text-center">
+                                <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- ****** Footer Area End ****** -->
+        {% endblock footer %}
+    </div>
+    <!-- /.wrapper end -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="{% static 'base2/js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'base2/js/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'base2/js/bootstrap.min.js' %}"></script>
+    <!-- Plugins js -->
+    <script src="{% static 'base2/js/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'base2/js/active.js' %}"></script>
+    {% block js_page %}    
+    
+    {% endblock js_page %}
+</body>
+
+</html>

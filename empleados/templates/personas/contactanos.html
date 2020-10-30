@@ -1,0 +1,267 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>{% block title %} CONTÁCTANOS | PSD {%  endblock %} </title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./img/core-img/favicon.png">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- /Preloader -->
+
+    <!-- Top Search Form Area -->
+    <div class="top-search-area">
+        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <!-- Close -->
+                        <button type="button" class="btn close-btn" data-dismiss="modal"><i class="ti-close"></i></button>
+                        <!-- Form -->
+                        <form action="index.html" method="post">
+                            <input type="search" name="top-search-bar" class="form-control" placeholder="Search and hit enter...">
+                            <button type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Area Start -->
+    <header class="header-area">
+        <!-- Main Header Start -->
+        <div class="main-header-area">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Classy Menu -->
+                    <nav class="classy-navbar justify-content-between" id="alimeNav">
+
+                        <!-- Logo -->
+                        <a class="nav-brand" href="./index.html"><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+                            <!-- Menu Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul id="nav">
+                                    <li ><a href="/">INICIO</a></li>
+                                    <li><a href="#">MI CARRITO</a>
+                                        <ul class="dropdown">
+                                            <li><a href="./about.html">MI CARRITO</a></li>
+                                            <li><a href="./about.html">MI CUENTA</a></li>
+                                           <!--  <li><a href="./gallery.html">- Gallery</a></li>
+                                            <li><a href="./blog.html">- Blog</a></li>
+                                            <li><a href="./single-blog.html">- Blog Details</a></li>
+                                            <li><a href="./contact.html">- Contact</a></li> -->
+                                            <li><a href="#">CATEGORÍAS</a>
+                                                <ul class="dropdown">
+                                                    <li><a href="#">- Dropdown Item</a></li>
+                                                    <li><a href="#">- Dropdown Item</a></li>
+                                                    <li><a href="#">- Dropdown Item</a></li>
+                                                    <li><a href="#">- Dropdown Item</a></li>
+                                                </ul>
+                                            </li> 
+                                        </ul>
+                                    </li>
+                                    <li><a href="./about.html">ACERCA DE NOSOTROS</a></li>
+                                    <li class="active"><a href="{% url 'contacto' %}">CONTÁCTANOS</a></li>
+                                    <!-- <li><a href="./blog.html">Blog</a></li>
+                                    <li><a href="./contact.html">Contact</a></li> -->
+                                </ul>
+
+                                <!-- Search Icon -->
+                                <div class="search-icon" data-toggle="modal" data-target="#searchModal"><i class="ti-search"></i></div>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header Area End -->
+    
+   <!-- Breadcrumb Area Start -->
+   <section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(/static/img/bg-img/79.jpg);">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="breadcrumb-content text-center">
+                    <h2 class="page-title">PONTE EN CONTÁCTO CON NOSTROS</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="/"><i class="icon_house_alt"></i> INICIO</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">CONTÁCTANOS</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Area End -->
+
+<!-- Contact Area Start -->
+<div class="contact-area section-padding-80-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <h5 class="contact-title mb-30">¡Vamos a trabajar <br>juntos!</h5>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <!-- Contact Info -->
+                <div class="contact-info mb-30">
+                    <p>Email</p>
+                    <h6><i class="fa fa-envelope" aria-hidden="true"></i> papelerisd@gmail.com</h6>
+                </div>
+                <!-- Contact Info -->
+                <div class="contact-info mb-30">
+                    <p>Llamanos o envianos un WhatsApp</p>
+                    <h6><i class="fa fa-whatsapp" aria-hidden="true"></i> (504) 9983-4342</h6>
+                   <h6><i class="fa fa-phone" aria-hidden="true"></i> 2788-2444</a></h6>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <!-- Contact Info -->
+                <div class="contact-info mb-30">
+                    <p>Visitanos</p>
+                    <a href="#">Barrio el centro contiguo a Fertica, Choluteca, Honduras</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact Area End -->
+
+<div class="container">
+    <hr style="background-color:#ff8a80; height: 2px;">
+    {% if messages %}
+    <div class="alert alert-info msj" role="alert">               
+            
+            {% for m in messages %}
+            <h5>{{m}}</h5>
+            {% endfor %}
+                
+        </div>
+ {% endif %} 
+    <form method="POST">{% csrf_token %}
+        <div class="form-group">
+          <label for="exampleInputEmail1">Nombres</label>
+          {{ form.name }}
+          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Email</label>
+              {{ form.email }}
+          <!-- <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> -->
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Teléfono</label>
+            {{ form.telefono }}
+            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Mensaje</label>
+                {{ form.message }}
+            <!-- <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> -->
+          </div>
+        <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+ 
+      </form>
+      <hr style="background-color:#ff8a80; height: 2px;">
+</div>
+
+<!-- Map Area Start -->
+<div class="map-area section-padding-0-80">
+    <div class="container">
+        <div id="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d6530.002184197227!2d-87.19645434726786!3d13.302769218281718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d13.308651399999999!2d-87.192135!4m5!1s0x8f703dc2d6d859f9%3A0x5b3a6b05c3a04ba1!2spapeleria%20san%20diego%20google%20maps!3m2!1d13.3017044!2d-87.19377159999999!5e0!3m2!1ses-419!2shn!4v1600120997530!5m2!1ses-419!2shn" width="800" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" ></iframe>
+        </div>
+    </div>
+</div>
+<!-- Map Area End -->
+            
+
+
+    <!-- Footer Area Start -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-content d-flex align-items-center justify-content-between">
+                        <!-- Copywrite Text -->
+                        <div class="copywrite-text">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> Papelería San Diego <i class="fa fa-hand-o-right" aria-hidden="true"></i> by <a href="#" target="_blank">Moises Vilorio</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
+                        <!-- Footer Logo -->
+                        <div class="footer-logo">
+                            <a href="#"><img src="{% static 'img/core-img/logo2.png' %}" alt=""></a>
+                        </div>
+                    
+                        <!-- Social Info -->
+                        <div class="social-info">
+                            <p>Follow Me</p>
+                            <a href="#"><i class="ti-facebook" aria-hidden="true"></i></a>
+                            <!-- <a href="#"><i class="ti-twitter-alt" aria-hidden="true"></i></a>
+                            <a href="#"><i class="ti-linkedin" aria-hidden="true"></i></a>
+                            <a href="#"><i class="ti-pinterest" aria-hidden="true"></i></a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Area End -->
+
+    <!-- **** All JS Files ***** -->
+    <!-- jQuery 2.2.4 -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <!-- Popper -->
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <!-- Bootstrap -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- All Plugins -->
+    <script src="{% static 'js/alime.bundle.js' %}"></script>
+    <!-- Active -->
+    <script src="{% static 'js/default-assets/active.js' %}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            setTimeout(function() {
+                $(".msj").fadeOut(2500);
+            },3000);
+        });
+        </script>
+
+</body>
+
+</html>

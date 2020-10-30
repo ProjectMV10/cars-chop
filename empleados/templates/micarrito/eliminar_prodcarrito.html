@@ -1,0 +1,48 @@
+
+<div class="modal-dialog">
+    <div class="modal-content">
+
+        
+
+            <div class="modal-body">
+                <div class="quickview_body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-lg-5">
+                                <div class="quickview_pro_img">
+                                    <img src="{{ producto.producto.imagen.url }}" alt="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-7">
+                                <div class="quickview_pro_des">
+                                    <h5 class="title">{{ producto.producto.nombre }}</h4>
+                                    <h5 class="price">L{{producto.precio}} <h5>
+                                    <h6> ¿ Esta seguro que desea eliminar este producto de su carrito ? </h6>
+                                    <hr>
+                                </div>
+                                <!-- Add to Cart Form -->
+                                <form action="{% url 'eliminar_producto' producto.id %}" method="POST"> {% csrf_token %}
+                                   
+                                    <button type="submit"  class="cart-submit">ELIMINAR</button>
+                                    <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
+                                    </button>
+                                   
+                                   <!--  <div class="modal_pro_wishlist">
+                                        <a href="wishlist.html" target="_blank"><i class="ti-heart"></i></a>
+                                    </div>
+                                   
+                                    <div class="modal_pro_compare">
+                                        <a href="compare.html" target="_blank"><i class="ti-stats-up"></i></a>
+                                    </div> -->
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+     
+</div>
+</div>
+

@@ -1,0 +1,61 @@
+{% extends 'base/base2.html' %}
+
+{% block title %} Categoria Productos | {{ categorias.categoria }} {% endblock title %}
+
+{% block page_content %}
+
+<section class="new_arrivals_area section_padding_100_0 clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section_heading text-center">
+                    <h2 style="font-size: 30px;">Categoría: {{ categorias.categoria }}</h2>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="karl-projects-menu mb-100">
+        <div class="text-center portfolio-menu">
+            <button class="btn active" data-filter="*">ALL</button>
+            <button class="btn" data-filter=".women">WOMAN</button>
+            <button class="btn" data-filter=".man">MAN</button>
+            <button class="btn" data-filter=".access">ACCESSORIES</button>
+            <button class="btn" data-filter=".shoes">shoes</button>
+            <button class="btn" data-filter=".kids">KIDS</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row karl-new-arrivals">
+          
+          {% for item in productos %}
+
+          
+              
+              
+            <!-- Single gallery Item Start -->
+            <div class="col-12 col-sm-6 col-md-4 single_gallery_item women wow fadeInUpBig" data-wow-delay="0.2s">
+                <!-- Product Image -->
+                <div class="product-img">
+                    <img src="{{ item.imagen.url }}" alt="">
+                    <div class="product-quicview">
+                        <a href="{% url 'detalle_producto' item.url %}" data-target="#quickview"><i class="ti-plus"></i></a>
+                    </div>
+                </div>
+                <!-- Product Description -->
+                <div class="product-description">
+                    <h4 class="product-price">L.{{item.precio}}</h4>
+                    <p>{{item.nombre}}</p>
+                    <p>SKU: {{item.codigo}}</p>
+                    <!-- Add to Cart -->
+                    <a href="{% url 'detalle_producto' item.url %}" class="add-to-cart-btn">VER PRODUCTO</a>
+                </div>
+            </div>
+
+            {% endfor %}
+    </div>
+</section>
+    
+{% endblock page_content %}

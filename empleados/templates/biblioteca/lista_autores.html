@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>listado de Autores</h1>
+
+    <form action="" method="get">
+      {% csrf_token %}
+      <input type="text" id="resul" name="resul" placeholder="Ingrese el texto aqui...">
+      <button type="submit"> buscar </button>  
+    </form>
+
+    <ul>
+    {% for a in obj %}
+     
+      <li>{{a.nombre}} - {{a.apellido}}</li>
+        
+    {% endfor %}
+</ul>
+</body>
+</html>
